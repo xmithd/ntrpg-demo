@@ -1,0 +1,4 @@
+.item-list-text {
+  inline-size: 80%;
+  overflow-wrap: break-word;
+}

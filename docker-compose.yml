@@ -1,0 +1,17 @@
+version: "3"
+
+# This is to run a local postgres instance with docker compose for development
+services:
+  postgres-img:
+    container_name: postgres-img
+    image: postgres:alpine
+    ports:
+      - "127.0.0.1:5432:5432/tcp"
+    environment:
+      POSTGRES_USER: 'ntrpg'
+      POSTGRES_PASSWORD: 'We2604ftw4NTRPG'
+    # Volumes store your data between container upgrades
+    volumes:
+      - './data/:/var/lib/postgresql/data/'
+      - './server/db/init.sql:/docker-entrypoint-initdb.d/create_tables.sql'
+    restart: unless-stopped
